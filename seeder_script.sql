@@ -1,5 +1,4 @@
 DELIMITER $$
-use are_you_prepared_local_JoshuaY;
 DROP PROCEDURE IF EXISTS seeder_script $$
 CREATE PROCEDURE seeder_script()
 BEGIN
@@ -32,13 +31,13 @@ VALUES
   ('Innovative Industries', '654 Cedar St, Outoftown', '555-2345');
 
 -- Inserting data into the projects table
-INSERT INTO projects (client_id, name, value, technologies, completed_at)
+INSERT INTO projects (client_id, name, value, technologies, completed_at, lead_employee_id)
 VALUES
-  (1, 'Project A', 1000000, 'Java, SQL', '2023-06-15 10:00:00'),
-  (2, 'Project B', 2000000, 'Python, HTML', NULL),
-  (3, 'Project C', 1500000, 'C#, MySQL', '2023-06-30 15:30:00'),
-  (4, 'Project D', 3000000, 'JavaScript, CSS', NULL);
-  (5, 'Project E', 3500000, 'JavaScript, CSS', NULL);
+  (1, 'Project A', 1000000, 'Java, SQL', '2023-06-15 10:00:00', 4),
+  (2, 'Project B', 2000000, 'Python, HTML', NULL, 4),
+  (3, 'Project C', 1500000, 'C#, MySQL', '2023-06-30 15:30:00', 5),
+  (4, 'Project D', 3000000, 'JavaScript, CSS', NULL, 5),
+  (5, 'Project E', 3500000, 'JavaScript, CSS', NULL, 5);
 
 -- Inserting data into the project_employees table
 INSERT INTO project_employees (project_id, employee_id)
@@ -51,12 +50,13 @@ VALUES
   (4, 5);
 
 -- Inserting data into the project_employee_logs table
-INSERT INTO project_employee_logs (project_id, client_id, left_at)
+INSERT INTO project_employee_logs (project_id, employee_id, left_at)
 VALUES
   (1, 1, '2023-06-20 12:00:00'),
   (1, 2, '2023-06-21 14:30:00'),
   (2, 1, '2023-06-19 11:45:00'),
   (3, 4, '2023-06-25 09:15:00');
+
 -- check the number of affected rows
 	GET DIAGNOSTICS @rows = ROW_COUNT;
 	IF @rows = 0 THEN

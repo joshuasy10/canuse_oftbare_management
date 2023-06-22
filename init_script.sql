@@ -1,6 +1,6 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS seeder_script $$
-CREATE PROCEDURE seeder_script()
+DROP PROCEDURE IF EXISTS init_script $$
+CREATE PROCEDURE init_script()
 BEGIN
 	START TRANSACTION;
 
@@ -33,7 +33,7 @@ BEGIN
 
 	CREATE TABLE IF NOT EXISTS projects (
 	id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	project_id SMALLINT UNSIGNED NOT NULL,
+	client_id SMALLINT UNSIGNED NOT NULL,
 	name VARCHAR(50) NOT NULL,
 	value INT UNSIGNED NOT NULL,
 	technologies TEXT,
@@ -41,7 +41,7 @@ BEGIN
 	completed_at TIMESTAMP,
 	lead_employee_id SMALLINT UNSIGNED NOT NULL,
 
-	FOREIGN KEY (project_id) REFERENCES project(id),
+	FOREIGN KEY (client_id) REFERENCES clients(id),
 	FOREIGN KEY (lead_employee_id) REFERENCES employees(id)
 
 	);        
@@ -51,9 +51,9 @@ BEGIN
 	employee_id SMALLINT UNSIGNED NOT NULL,
 	joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-	CONSTRAINT pk_project_client PRIMARY KEY (project_id, client_id),
+	CONSTRAINT pk_project_employee PRIMARY KEY (project_id, employee_id),
 	FOREIGN KEY (project_id) REFERENCES projects(id),
-	FOREIGN KEY (employee_id) REFERENCES employee(id)
+	FOREIGN KEY (employee_id) REFERENCES employees(id)
 	);     
 			
 	CREATE TABLE IF NOT EXISTS project_employee_logs (
@@ -62,9 +62,9 @@ BEGIN
 	joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	left_at TIMESTAMP,
 
-	CONSTRAINT pk_project_client PRIMARY KEY (project_id, client_id),
+	CONSTRAINT pk_project_employee PRIMARY KEY (project_id, employee_id),
 	FOREIGN KEY (project_id) REFERENCES projects(id),
-	FOREIGN KEY (employee_id) REFERENCES project(id)
+	FOREIGN KEY (employee_id) REFERENCES projects(id)
 	);       
 
 	-- check the number of affected rows
@@ -81,4 +81,4 @@ BEGIN
 	
 END $$
 DELIMITER ;
-CALL seeder_script();			
+CALL init_script();			
