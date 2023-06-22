@@ -1,0 +1,45 @@
+What do we need to make:
+
+1. Make an employee table with:
+	employee_id | int
+	name | varchar(255)
+	salary | int
+	national_insurance | varchar(9)
+
+2. Make an Access table with:
+	access_id | int
+	(FK) employee_id
+	role | varchar(50)
+
+3. Make a client table with:
+	client_id | int
+	name | varchar(255)
+	address | varchar(255)
+	phone | varchar(11)
+	(FK) lead_employee_id
+
+4. Make a project table with:
+	project_id | int
+	(FK) client_id
+	name | varchar
+	value | int
+	technologies | text
+	completed | binary
+
+5. Make a project_employee table with:
+	start_at | timestamp
+	project_id
+	employee_id
+
+6. Make a project_employee_log table with:
+	project_id
+	employee_id
+	start_at | timestamp
+	end_at | timestamp
+
+Alex:
+1-3
+
+Joshua:
+4-6
+
