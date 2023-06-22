@@ -33,7 +33,7 @@ BEGIN
 
 	CREATE TABLE IF NOT EXISTS projects (
 	id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	client_id SMALLINT UNSIGNED NOT NULL,
+	project_id SMALLINT UNSIGNED NOT NULL,
 	name VARCHAR(50) NOT NULL,
 	value INT UNSIGNED NOT NULL,
 	technologies TEXT,
@@ -41,7 +41,7 @@ BEGIN
 	completed_at TIMESTAMP,
 	lead_employee_id SMALLINT UNSIGNED NOT NULL,
 
-	FOREIGN KEY (client_id) REFERENCES clients(id),
+	FOREIGN KEY (project_id) REFERENCES project(id),
 	FOREIGN KEY (lead_employee_id) REFERENCES employees(id)
 
 	);        
