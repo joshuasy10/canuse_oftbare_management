@@ -17,7 +17,7 @@ BEGIN
 	CREATE TABLE IF NOT EXISTS access (
 		id SMALLINT AUTO_INCREMENT PRIMARY KEY,
 		employee_id SMALLINT NOT NULL,
-		role VARCHAR(50) NOT NULL,
+		role ENUM('hr', 'management', 'delivery') NOT NULL,
 		FOREIGN KEY (employee_id) REFERENCES employees(id)
 	);
 
