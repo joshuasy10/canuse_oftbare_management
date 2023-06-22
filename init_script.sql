@@ -48,23 +48,23 @@ BEGIN
 			
 	CREATE TABLE IF NOT EXISTS project_employees (
 	project_id SMALLINT UNSIGNED NOT NULL,
-	client_id SMALLINT UNSIGNED NOT NULL,
+	employee_id SMALLINT UNSIGNED NOT NULL,
 	joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
 	CONSTRAINT pk_project_client PRIMARY KEY (project_id, client_id),
 	FOREIGN KEY (project_id) REFERENCES projects(id),
-	FOREIGN KEY (client_id) REFERENCES clients(id)
+	FOREIGN KEY (employee_id) REFERENCES employee(id)
 	);     
 			
 	CREATE TABLE IF NOT EXISTS project_employee_logs (
 	project_id SMALLINT UNSIGNED NOT NULL,
-	client_id SMALLINT UNSIGNED NOT NULL,
+	employee_id SMALLINT UNSIGNED NOT NULL,
 	joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	left_at TIMESTAMP,
 
 	CONSTRAINT pk_project_client PRIMARY KEY (project_id, client_id),
 	FOREIGN KEY (project_id) REFERENCES projects(id),
-	FOREIGN KEY (client_id) REFERENCES clients(id)
+	FOREIGN KEY (employee_id) REFERENCES project(id)
 	);       
 
 	-- check the number of affected rows

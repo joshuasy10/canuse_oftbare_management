@@ -41,7 +41,7 @@ VALUES
   (5, 'Project E', 3500000, 'JavaScript, CSS', NULL);
 
 -- Inserting data into the project_employees table
-INSERT INTO project_employees (project_id, client_id)
+INSERT INTO project_employees (project_id, employee_id)
 VALUES
   (1, 1),
   (1, 2),
