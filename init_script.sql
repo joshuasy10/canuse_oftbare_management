@@ -15,9 +15,9 @@ BEGIN
 	-- part two (access table)
 
 	CREATE TABLE IF NOT EXISTS access (
-		id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		employee_id SMALLINT UNSIGNED NOT NULL,
-		role VARCHAR(50) NOT NULL,
+		id SMALLINT AUTO_INCREMENT PRIMARY KEY,
+		employee_id SMALLINT NOT NULL,
+		role ENUM('hr', 'management', 'delivery') NOT NULL,
 		FOREIGN KEY (employee_id) REFERENCES employees(id)
 	);
     
