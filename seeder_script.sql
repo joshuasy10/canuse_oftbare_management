@@ -21,14 +21,14 @@ VALUES
   (3, 'delivery');
 
 -- Inserting data into the clients table
-INSERT INTO clients (name, address, phone)
+INSERT INTO clients (name, address, phone, sales_employee_id)
 VALUES
-  ('ABC Company', '123 Main St, Anytown', '555-1234'),
-  ('XYZ Corporation', '456 Elm St, Othertown', '555-5678'),
-  ('Acme Inc.', '789 Oak St, Anothertown', '555-9012'),
-  ('Global Enterprises', '321 Pine St, Somewhere', '555-3456'),
-  ('Tech Solutions', '987 Maple St, Overthere', '555-7890'),
-  ('Innovative Industries', '654 Cedar St, Outoftown', '555-2345');
+  ('ABC Company', '123 Main St, Anytown', '555-1234', 1),
+  ('XYZ Corporation', '456 Elm St, Othertown', '555-5678', 1),
+  ('Acme Inc.', '789 Oak St, Anothertown', '555-9012', 1),
+  ('Global Enterprises', '321 Pine St, Somewhere', '555-3456', 1),
+  ('Tech Solutions', '987 Maple St, Overthere', '555-7890', 1),
+  ('Innovative Industries', '654 Cedar St, Outoftown', '555-2345', 1);
 
 -- Inserting data into the projects table
 INSERT INTO projects (client_id, name, value, technologies, completed_at, lead_employee_id)

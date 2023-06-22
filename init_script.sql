@@ -28,7 +28,11 @@ BEGIN
 		id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		name VARCHAR(50) NOT NULL,
 		address VARCHAR(255) NOT NULL,
-		phone VARCHAR(11) NOT NULL
+		phone VARCHAR(11) NOT NULL,
+		sales_employee_id SMALLINT UNSIGNED NOT NULL,
+
+		FOREIGN KEY (sales_employee_id) REFERENCES employees(id)
+
 	);
 
 	CREATE TABLE IF NOT EXISTS projects (
