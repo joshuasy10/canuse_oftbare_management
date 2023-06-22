@@ -1,6 +1,6 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS init_script $$
-CREATE PROCEDURE init_script()
+DROP PROCEDURE IF EXISTS seeder_script $$
+CREATE PROCEDURE seeder_script()
 BEGIN
 	START TRANSACTION;
 
@@ -81,4 +81,4 @@ BEGIN
 	
 END $$
 DELIMITER ;
-CALL init_script();			
+CALL seeder_script();			

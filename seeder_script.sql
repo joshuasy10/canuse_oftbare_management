@@ -1,6 +1,7 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS init_script $$
-CREATE PROCEDURE init_script()
+use are_you_prepared_local_JoshuaY;
+DROP PROCEDURE IF EXISTS seeder_script $$
+CREATE PROCEDURE seeder_script()
 BEGIN
 	START TRANSACTION;
     
@@ -9,8 +10,8 @@ INSERT INTO employees (name, salary, national_insurance_number)
 VALUES
   ('John Doe', 50000, 'AB34567891C'),
   ('Jane Smith', 60000, 'CD7654321V'),
-  ('Alice Johnson', 55000, 'DJ678912P');
-  ('Gordon Davidson', 55000, 'DF386623P');
+  ('Alice Johnson', 55000, 'DJ678912P'),
+  ('Gordon Davidson', 55000, 'DF386623P'),
   ('Adam Brown', 55000, 'DF679252D');
 
 -- Inserting data into the access table
@@ -70,4 +71,4 @@ VALUES
 	
 END $$
 DELIMITER ;
-CALL init_script();		
+CALL seeder_script();		
