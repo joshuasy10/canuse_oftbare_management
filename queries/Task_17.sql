@@ -1,4 +1,4 @@
-ELECT projects.name, employees.name as lead_employee_id  FROM projects 
+SELECT projects.name, employees.name as lead_employee_id  FROM projects 
 JOIN employees ON projects.lead_employee_id = employees.id
 ;
 
