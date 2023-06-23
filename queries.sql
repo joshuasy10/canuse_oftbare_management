@@ -24,6 +24,7 @@ JOIN projects ON clients.id = projects.client_id
 GROUP BY clients.id, clients.name;
 
 -- Task 13: Get a list of sales employees and how much each has made in commission this year.
+SELECT 
 
 -- Task 14: Get a list of sales employees who haven't won any clients this year (todo, need to add timestamp to employees/clients to accomodate for year)
 SELECT employees.id, employees.name
