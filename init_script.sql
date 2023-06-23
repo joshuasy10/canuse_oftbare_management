@@ -30,6 +30,8 @@ BEGIN
 		address VARCHAR(255) NOT NULL,
 		phone VARCHAR(11) NOT NULL,
 		sales_employee_id SMALLINT UNSIGNED NOT NULL,
+		joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
 
 		FOREIGN KEY (sales_employee_id) REFERENCES employees(id)
 
@@ -71,17 +73,7 @@ BEGIN
 	FOREIGN KEY (employee_id) REFERENCES projects(id)
 	);       
 
-	-- check the number of affected rows
-	GET DIAGNOSTICS @rows = ROW_COUNT;
-	IF @rows = 0 THEN
-		-- Rollback if error
-		ROLLBACK;
-		SELECT 'Transaction rolled back due to an error.';
-	ELSE
-		-- If error free
-		COMMIT;
-		SELECT 'Transaction committed successfully.';
-	END IF; 
+	
 	
 END $$
 DELIMITER ;
