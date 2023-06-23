@@ -79,8 +79,6 @@ BEGIN
 		FOREIGN KEY (employee_id) REFERENCES projects(id)
 	);       
 
-	
-	
 END $$
 DELIMITER ;
 CALL init_script();			
