@@ -10,25 +10,29 @@ VALUES
   ('John Doe', 50000, 'AB34567891C'),
   ('Jane Smith', 60000, 'CD7654321V'),
   ('Alice Johnson', 55000, 'DJ678912P'),
-  ('Gordon Davidson', 55000, 'DF386623P'),
-  ('Adam Brown', 55000, 'DF679252D');
+  ('Gordon Davidson', 55000, 'DM386623P'),
+  ('Adam Brown', 55000, 'DF679252D'),
+  ('Harry Bacon', 55000, 'CF679252D');
 
 -- Inserting data into the access table
 INSERT INTO access (employee_id, role)
 VALUES
   (1, 'hr'),
   (2, 'management'),
-  (3, 'delivery');
+  (3, 'delivery'),
+  (1, 'delivery'),
+  (2, 'delivery'),
+  (4, 'management');
 
 -- Inserting data into the clients table
-INSERT INTO clients (name, address, phone, sales_employee_id)
+INSERT INTO clients (name, address, phone, sales_employee_id, joined_at)
 VALUES
-  ('ABC Company', '123 Main St, Anytown', '555-1234', 1),
-  ('XYZ Corporation', '456 Elm St, Othertown', '555-5678', 1),
-  ('Acme Inc.', '789 Oak St, Anothertown', '555-9012', 1),
-  ('Global Enterprises', '321 Pine St, Somewhere', '555-3456', 1),
-  ('Tech Solutions', '987 Maple St, Overthere', '555-7890', 1),
-  ('Innovative Industries', '654 Cedar St, Outoftown', '555-2345', 1);
+  ('ABC Company', '123 Main St, Anytown', '555-1234', 1, '2020-04-12 10:00:00'),
+  ('XYZ Corporation', '456 Elm St, Othertown', '555-5678', 1, '2023-04-12 10:00:00'),
+  ('Acme Inc.', '789 Oak St, Anothertown', '555-9012', 1, '2021-04-12 10:00:00'),
+  ('Global Enterprises', '321 Pine St, Somewhere', '555-3456', 1, '2020-04-12 10:00:00'), 
+  ('Tech Solutions', '987 Maple St, Overthere', '555-7890', 6, '2020-05-12 10:00:00'),
+  ('Innovative Industries', '654 Cedar St, Outoftown', '555-2345', 6, '2020-04-12 10:00:00');
 
 -- Inserting data into the projects table
 INSERT INTO projects (client_id, name, value, technologies, completed_at, lead_employee_id)
@@ -37,7 +41,7 @@ VALUES
   (2, 'Project B', 2000000, 'Python, HTML', NULL, 4),
   (3, 'Project C', 1500000, 'C#, MySQL', '2023-06-30 15:30:00', 5),
   (4, 'Project D', 3000000, 'JavaScript, CSS', NULL, 5),
-  (5, 'Project E', 3500000, 'JavaScript, CSS', NULL, 5);
+  (4, 'Project E', 3500000, 'JavaScript, CSS', NULL, 5);
 
 -- Inserting data into the project_employees table
 INSERT INTO project_employees (project_id, employee_id)
