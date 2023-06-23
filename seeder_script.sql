@@ -4,7 +4,7 @@ CREATE PROCEDURE seeder_script()
 BEGIN
 	START TRANSACTION;
     
-    -- Inserting data into the employees table
+-- Inserting data into the employees table
 INSERT INTO employees (name, salary, national_insurance_number)
 VALUES
   ('John Doe', 50000, 'AB34567891C'),
